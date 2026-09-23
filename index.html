@@ -369,6 +369,11 @@
       0% { height: 15%; }
       100% { height: 95%; }
     }
+    .paused-eq .eq-bar {
+      animation-play-state: paused !important;
+      opacity: 0.4;
+      height: 18% !important;
+    }
 
     /* IR Blaster Glow */
     .ir-blaster {
@@ -638,34 +643,69 @@
               </div>
 
 
-              <!-- ==================== CHANNEL 4: شادية MTV للموسيقى ==================== -->
+              <!-- ==================== CHANNEL 4: شادية MTV للموسيقى (وعمري ما أشكي من حبك) ==================== -->
               <div class="channel-content" id="channel4">
-                <div class="relative w-full h-full bg-gradient-to-b from-indigo-950 via-purple-950 to-pink-950 flex flex-col justify-between p-3">
+                <div class="relative w-full h-full bg-gradient-to-b from-indigo-950 via-purple-950 to-pink-950 flex flex-col justify-between p-3 overflow-hidden">
+                  
+                  <!-- Audio Element for Real Attached Song -->
+                  <audio id="shadiaAudioTrack" loop preload="auto">
+                    <source src="./shadia_song.mp3" type="audio/mpeg">
+                    <source src="./vidssave.com%20%D9%88%D8%B9%D9%85%D8%B1%D9%8A%20%D9%85%D8%A7%20%D8%A3%D8%B4%D9%83%D9%8A%20%D9%85%D9%86%20%D8%AD%D8%A8%D9%83%20%D9%85%D9%87%D9%85%D8%A7%20%D8%BA%D8%B1%D8%A7%D9%85%D9%83%20%D9%84%D9%88%D8%B9%D9%86%D9%8A%D8%8C%2048KBPS.mp3" type="audio/mpeg">
+                  </audio>
+
+                  <!-- Top Header -->
                   <div class="flex items-center justify-between border-b border-pink-500/30 pb-1 mt-6">
-                    <span class="bg-gradient-to-r from-pink-500 to-indigo-500 text-white font-black text-[9px] px-2 py-0.5 rounded">
-                      SHADIA MTV
+                    <span class="bg-gradient-to-r from-pink-500 to-indigo-500 text-white font-black text-[9px] px-2 py-0.5 rounded shadow">
+                      SHADIA MTV ✦
                     </span>
-                    <span class="text-pink-300 text-[10px] animate-pulse">
-                      <i class="fa-solid fa-music"></i> أنغام الغرام
+                    <span class="text-pink-300 text-[10px] animate-pulse flex items-center gap-1">
+                      <i class="fa-solid fa-compact-disc"></i> الآن يعزف لشادية
                     </span>
                   </div>
-                  <div class="my-auto flex flex-col items-center justify-center text-center">
-                    <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-pink-600 to-amber-500 p-0.5 shadow-lg animate-spin" style="animation-duration: 8s;">
-                      <div class="w-full h-full rounded-full bg-zinc-900 flex items-center justify-center">
-                        <i class="fa-solid fa-heart text-pink-400 text-base"></i>
+
+                  <!-- Center: Vinyl & Song Info -->
+                  <div class="my-auto flex flex-col items-center justify-center text-center px-2">
+                    <!-- Spinning Vinyl Record -->
+                    <div id="vinylRecord" class="w-16 h-16 rounded-full bg-gradient-to-tr from-zinc-950 via-zinc-800 to-zinc-950 p-1 shadow-[0_0_20px_rgba(236,72,153,0.5)] border-2 border-zinc-700 animate-spin" style="animation-duration: 4s;">
+                      <div class="w-full h-full rounded-full bg-gradient-to-tr from-pink-600 to-amber-500 flex items-center justify-center border border-zinc-900">
+                        <i class="fa-solid fa-heart text-white text-sm"></i>
                       </div>
                     </div>
-                    <h3 class="text-sm font-bold text-white font-amiri mt-2">
-                      لحن الوفاء لعيون شادية 🎵
+
+                    <h3 class="text-sm sm:text-base font-black text-amber-200 font-amiri mt-2 leading-tight">
+                      «وعمري ما أشكي من حبك» 🎵
                     </h3>
-                    <p class="text-[11px] text-pink-200 font-alex mt-0.5">
-                      "يا صوتكِ اللي لو سرى في مسمعي.. أزهر خريفي وابتسم كل الوجود"
+                    <p class="text-[11px] text-pink-200/90 font-alex mt-0.5 font-bold">
+                      مهما غرامك لوعني.. إهداء لقلب شادية 💕
                     </p>
-                    <button id="btnPlayMelody" class="mt-2.5 bg-pink-600 hover:bg-pink-500 active:scale-95 text-white text-xs px-3.5 py-1 rounded-full shadow flex items-center gap-1.5">
-                      <i class="fa-solid fa-play text-[9px]"></i> عزف مقطوعة الحب
-                    </button>
-                    <!-- Equalizer -->
-                    <div class="flex items-end justify-center gap-1.5 h-8 mt-2 w-36">
+
+                    <!-- Romantic Lyrics Quote Box -->
+                    <div class="bg-black/50 border border-pink-500/30 rounded-lg p-2 mt-1.5 max-w-xs backdrop-blur-xs">
+                      <p class="text-[10px] text-pink-100 font-amiri leading-relaxed italic">
+                        "وعمري ما أشكي من حبك مهما غرامك لوعني..<br>
+                        لكن أغير وبداري وبقيد وأطفي في ناري"
+                      </p>
+                    </div>
+
+                    <!-- Song Play/Pause Interactive Button -->
+                    <div class="flex items-center gap-2 mt-2">
+                      <button onclick="toggleSongPlay()" id="btnSongToggle" class="bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-500 hover:to-purple-500 active:scale-95 text-white text-xs px-4 py-1 rounded-full shadow-lg flex items-center gap-1.5 border border-pink-300/40">
+                        <i class="fa-solid fa-play text-[9px]" id="songBtnIcon"></i>
+                        <span id="songBtnText">تشغيل الأغنية</span>
+                      </button>
+                    </div>
+
+                    <!-- Audio Timeline / Progress Bar -->
+                    <div class="w-full max-w-[210px] mt-2 flex items-center gap-1.5 px-1">
+                      <span id="audioCurrentTime" class="text-[9px] text-pink-300 font-mono">0:00</span>
+                      <div class="flex-1 bg-black/60 h-1.5 rounded-full overflow-hidden border border-pink-500/30 cursor-pointer" onclick="seekSong(event)" id="audioProgressContainer">
+                        <div id="audioProgressBar" class="h-full bg-gradient-to-r from-pink-500 to-amber-400 w-0 transition-all duration-100"></div>
+                      </div>
+                      <span id="audioDuration" class="text-[9px] text-pink-300 font-mono">0:00</span>
+                    </div>
+
+                    <!-- Equalizer Spectrum Bars -->
+                    <div class="flex items-end justify-center gap-1.5 h-6 mt-2 w-36 paused-eq" id="audioEqualizer">
                       <div class="eq-bar"></div>
                       <div class="eq-bar"></div>
                       <div class="eq-bar"></div>
@@ -674,8 +714,10 @@
                       <div class="eq-bar"></div>
                     </div>
                   </div>
-                  <div class="text-center text-[9px] text-pink-300/70 border-t border-pink-500/20 pt-1 font-alex">
-                    موسيقى عذبة مخصصة لأذن شادية الرقيقة 🎧
+
+                  <!-- Bottom Tag -->
+                  <div class="text-center text-[9px] text-pink-300/80 border-t border-pink-500/20 pt-1 font-alex">
+                    أغنية خاصة تُعبر عن عُمق العشق الأبدي لشادية 🎧
                   </div>
                 </div>
               </div>
@@ -804,11 +846,17 @@
         </button>
       </div>
 
-      <!-- Quick Video Button: شبيهة بلحضاتنا -->
-      <button onclick="setChannel(3)" class="bg-gradient-to-r from-purple-900 to-pink-900 hover:from-purple-800 hover:to-pink-800 active:scale-95 text-yellow-300 text-xs font-bold px-3 py-1.5 rounded-xl flex items-center gap-1.5 border border-pink-500/50 shadow">
-        <i class="fa-solid fa-film text-pink-400"></i>
-        <span>شبيهة بلحضاتنا</span>
-      </button>
+      <!-- Quick Channel Shortcuts: 3: فيديو شبيهة بلحضاتنا | 4: أغنية وعمري ما أشكي من حبك -->
+      <div class="flex items-center gap-1">
+        <button onclick="setChannel(3)" class="bg-gradient-to-r from-purple-900 to-pink-900 hover:from-purple-800 hover:to-pink-800 active:scale-95 text-yellow-300 text-[11px] font-bold px-2 py-1.5 rounded-xl flex items-center gap-1 border border-pink-500/50 shadow" title="قناة 3: شبيهة بلحضاتنا 🎬">
+          <i class="fa-solid fa-film text-pink-400"></i>
+          <span>الفيديو</span>
+        </button>
+        <button onclick="setChannel(4)" class="bg-gradient-to-r from-rose-900 to-pink-900 hover:from-rose-800 hover:to-pink-800 active:scale-95 text-amber-200 text-[11px] font-bold px-2 py-1.5 rounded-xl flex items-center gap-1 border border-rose-500/50 shadow" title="قناة 4: وعمري ما أشكي من حبك 🎵">
+          <i class="fa-solid fa-music text-pink-300"></i>
+          <span>الأغنية 🎵</span>
+        </button>
+      </div>
 
       <!-- Magic Hearts Button -->
       <button id="mobileHeartShowerBtn" class="w-9 h-9 bg-gradient-to-tr from-pink-600 to-rose-500 active:scale-95 text-white rounded-xl flex items-center justify-center shadow" title="إمطار القلوب لشادية">
@@ -922,7 +970,7 @@
         <button class="remote-btn h-10 text-sm font-bold font-mono" data-channel="1">1</button>
         <button class="remote-btn h-10 text-sm font-bold font-mono" data-channel="2">2</button>
         <button class="remote-btn h-10 text-sm font-bold font-mono border-pink-400 text-yellow-300 shadow-[0_0_10px_rgba(244,114,182,0.4)]" data-channel="3" title="قناة: شبيهة بلحضاتنا 🎬">3 ★</button>
-        <button class="remote-btn h-10 text-sm font-bold font-mono" data-channel="4">4</button>
+        <button class="remote-btn h-10 text-sm font-bold font-mono border-rose-400 text-amber-300 shadow-[0_0_10px_rgba(244,63,94,0.4)]" data-channel="4" title="قناة 4: وعمري ما أشكي من حبك 🎵">4 🎵</button>
         <button class="remote-btn h-10 text-sm font-bold font-mono" data-channel="5">5</button>
         <button class="remote-btn h-10 text-xs text-pink-300" id="mrcQuickPrev" title="القناة السابقة">
           <i class="fa-solid fa-rotate-left"></i>
@@ -982,7 +1030,7 @@
       1: { name: 'شادية الإخبارية (عاجل)', color: 'rgba(220, 38, 38, 0.55)', watermark: 'CH 01 • شادية الإخبارية' },
       2: { name: 'ناشيونال شاديوغرافيك', color: 'rgba(16, 185, 129, 0.45)', watermark: 'CH 02 • SHADIOGRAPHIC' },
       3: { name: 'شبيهة بلحضاتنا 🎬 (سينما الغرام)', color: 'rgba(236, 72, 153, 0.65)', watermark: 'CH 03 • شبيهة بلحضاتنا 🎬' },
-      4: { name: 'شادية MTV للموسيقى', color: 'rgba(236, 72, 153, 0.60)', watermark: 'CH 04 • SHADIA MTV' },
+      4: { name: 'وعمري ما أشكي من حبك 🎵', color: 'rgba(236, 72, 153, 0.65)', watermark: 'CH 04 • وعمري ما أشكي من حبك 🎵' },
       5: { name: 'قناة بيت العمر', color: 'rgba(245, 158, 11, 0.50)', watermark: 'CH 05 • OUR SWEET HOME' }
     };
 
@@ -1129,13 +1177,41 @@
       const hwNum = document.getElementById('hwChannelNum');
       if (hwNum) hwNum.textContent = channelNumber;
 
-      // Video playback control
+      // Video & Audio playback control
       const vid = document.getElementById('shadiaNativeVideo');
-      if (vid) {
-        if (channelNumber === 3 && tvState.isOn) {
-          vid.play().catch(() => {});
-        } else {
-          vid.pause();
+      const song = document.getElementById('shadiaAudioTrack');
+      const vinyl = document.getElementById('vinylRecord');
+      const songIcon = document.getElementById('songBtnIcon');
+      const songText = document.getElementById('songBtnText');
+      const eq = document.getElementById('audioEqualizer');
+
+      if (channelNumber === 3 && tvState.isOn) {
+        if (vid) vid.play().catch(() => {});
+        if (song) {
+          song.pause();
+          if (vinyl) vinyl.style.animationPlayState = 'paused';
+          if (songIcon) songIcon.className = 'fa-solid fa-play text-[9px]';
+          if (songText) songText.textContent = 'تشغيل الأغنية';
+          if (eq) eq.classList.add('paused-eq');
+        }
+      } else if (channelNumber === 4 && tvState.isOn) {
+        if (vid) vid.pause();
+        if (song) {
+          song.play().then(() => {
+            if (vinyl) vinyl.style.animationPlayState = 'running';
+            if (songIcon) songIcon.className = 'fa-solid fa-pause text-[9px]';
+            if (songText) songText.textContent = 'إيقاف مؤقت';
+            if (eq) eq.classList.remove('paused-eq');
+          }).catch(() => {});
+        }
+      } else {
+        if (vid) vid.pause();
+        if (song) {
+          song.pause();
+          if (vinyl) vinyl.style.animationPlayState = 'paused';
+          if (songIcon) songIcon.className = 'fa-solid fa-play text-[9px]';
+          if (songText) songText.textContent = 'تشغيل الأغنية';
+          if (eq) eq.classList.add('paused-eq');
         }
       }
 
@@ -1152,6 +1228,8 @@
       const powerLed = document.getElementById('powerLed');
       const ambilighter = document.getElementById('tvAmbilight');
       const vid = document.getElementById('shadiaNativeVideo');
+      const song = document.getElementById('shadiaAudioTrack');
+      const vinyl = document.getElementById('vinylRecord');
 
       if (tvState.isOn) {
         screenOffOverlay.classList.add('hidden-screen');
@@ -1159,13 +1237,18 @@
         ambilighter.classList.remove('off');
         triggerScreenStatic(320);
         setChannel(tvState.currentChannel);
-        if (vid && tvState.currentChannel === 3) vid.play().catch(() => {});
         showToast('تم تشغيل التلفاز 📺', 'fa-tv');
       } else {
         screenOffOverlay.classList.remove('hidden-screen');
         powerLed.className = 'w-2.5 h-2.5 rounded-full bg-red-600 shadow-[0_0_6px_#ef4444]';
         ambilighter.classList.add('off');
         if (vid) vid.pause();
+        if (song) {
+          song.pause();
+          if (vinyl) vinyl.style.animationPlayState = 'paused';
+          const eq = document.getElementById('audioEqualizer');
+          if (eq) eq.classList.add('paused-eq');
+        }
         for (let i = 1; i <= tvState.totalChannels; i++) {
           const chEl = document.getElementById(`channel${i}`);
           if (chEl) chEl.classList.remove('active');
@@ -1182,9 +1265,14 @@
       tvState.volume = Math.max(0, Math.min(100, tvState.volume + amount));
       tvState.isMuted = false;
       const vid = document.getElementById('shadiaNativeVideo');
+      const song = document.getElementById('shadiaAudioTrack');
       if (vid) {
         vid.volume = tvState.volume / 100;
         vid.muted = false;
+      }
+      if (song) {
+        song.volume = tvState.volume / 100;
+        song.muted = false;
       }
       showToast(`مستوى الصوت: ${tvState.volume}%`, tvState.volume > 0 ? 'fa-volume-high' : 'fa-volume-xmark');
     }
@@ -1195,7 +1283,9 @@
       if (!tvState.isOn) return;
       tvState.isMuted = !tvState.isMuted;
       const vid = document.getElementById('shadiaNativeVideo');
+      const song = document.getElementById('shadiaAudioTrack');
       if (vid) vid.muted = tvState.isMuted;
+      if (song) song.muted = tvState.isMuted;
       showToast(tvState.isMuted ? 'تم كتم الصوت 🔇' : `تم إلغاء الكتم (${tvState.volume}%)`, tvState.isMuted ? 'fa-volume-xmark' : 'fa-volume-high');
     }
 
@@ -1208,6 +1298,40 @@
         icon.className = vid.muted ? 'fa-solid fa-volume-xmark text-[8px]' : 'fa-solid fa-volume-high text-[8px]';
       }
       showToast(vid.muted ? 'تم كتم صوت الفيديو 🔇' : 'تم تشغيل صوت الفيديو 🔊', vid.muted ? 'fa-volume-xmark' : 'fa-volume-high');
+    }
+
+    function toggleSongPlay() {
+      const song = document.getElementById('shadiaAudioTrack');
+      const vinyl = document.getElementById('vinylRecord');
+      const icon = document.getElementById('songBtnIcon');
+      const txt = document.getElementById('songBtnText');
+      const eq = document.getElementById('audioEqualizer');
+      if (!song) return;
+      if (song.paused) {
+        song.play().then(() => {
+          if (vinyl) vinyl.style.animationPlayState = 'running';
+          if (icon) icon.className = 'fa-solid fa-pause text-[9px]';
+          if (txt) txt.textContent = 'إيقاف مؤقت';
+          if (eq) eq.classList.remove('paused-eq');
+          showToast('يعزف الآن: وعمري ما أشكي من حبك 🎵', 'fa-music');
+        }).catch(() => {});
+      } else {
+        song.pause();
+        if (vinyl) vinyl.style.animationPlayState = 'paused';
+        if (icon) icon.className = 'fa-solid fa-play text-[9px]';
+        if (txt) txt.textContent = 'تشغيل الأغنية';
+        if (eq) eq.classList.add('paused-eq');
+        showToast('تم إيقاف الأغنية مؤقتاً', 'fa-pause');
+      }
+    }
+
+    function seekSong(e) {
+      const song = document.getElementById('shadiaAudioTrack');
+      const container = document.getElementById('audioProgressContainer');
+      if (!song || !container || !song.duration) return;
+      const rect = container.getBoundingClientRect();
+      const clickPos = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+      song.currentTime = clickPos * song.duration;
     }
 
     /* Room Light Switch */
@@ -1314,45 +1438,49 @@
       document.querySelectorAll('.romantic-modal').forEach(m => m.classList.add('hidden-modal'));
     }
 
-    document.getElementById('loveLetterProp').addEventListener('click', () => openModal('modalSecretWhisper'));
-    document.getElementById('frameProp').addEventListener('click', () => openModal('modalPactOfLove'));
-    document.getElementById('openMobileRemoteBtn').addEventListener('click', () => openModal('mobileRemoteModal'));
-    document.getElementById('coffeeProp').addEventListener('click', () => {
-      playClickSound();
-      showToast('رشفة قهوة دافئة محلاة بحب شادية ☕♥', 'fa-mug-hot');
-    });
-
-    document.querySelectorAll('.closeModalBtn').forEach(btn => btn.addEventListener('click', closeAllModals));
-    document.querySelectorAll('.romantic-modal').forEach(modal => {
-      modal.addEventListener('click', (e) => { if (e.target === modal) closeAllModals(); });
-    });
+    function bindClick(id, fn) {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('click', fn);
+    }
 
     /* DOM Initialization */
     document.addEventListener('DOMContentLoaded', () => {
       document.body.addEventListener('click', initAudio, { once: true });
 
-      // Hardware Button
-      document.getElementById('btnHwPower').addEventListener('click', togglePower);
-      document.getElementById('ceilingLamp').addEventListener('click', toggleRoomLighting);
-      document.getElementById('candleProp').addEventListener('click', toggleCandle);
-      document.getElementById('btnPlayMelody').addEventListener('click', playRomanticMelody);
+      bindClick('loveLetterProp', () => openModal('modalSecretWhisper'));
+      bindClick('frameProp', () => openModal('modalPactOfLove'));
+      bindClick('openMobileRemoteBtn', () => openModal('mobileRemoteModal'));
+      bindClick('coffeeProp', () => {
+        playClickSound();
+        showToast('رشفة قهوة دافئة محلاة بحب شادية ☕♥', 'fa-mug-hot');
+      });
+
+      document.querySelectorAll('.closeModalBtn').forEach(btn => btn.addEventListener('click', closeAllModals));
+      document.querySelectorAll('.romantic-modal').forEach(modal => {
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeAllModals(); });
+      });
+
+      // Hardware Buttons & Props
+      bindClick('btnHwPower', togglePower);
+      bindClick('ceilingLamp', toggleRoomLighting);
+      bindClick('candleProp', toggleCandle);
 
       // Mobile Bottom Bar
-      document.getElementById('mobilePowerBtn').addEventListener('click', togglePower);
-      document.getElementById('mobileChNextBtn').addEventListener('click', () => setChannel(tvState.currentChannel + 1));
-      document.getElementById('mobileChPrevBtn').addEventListener('click', () => setChannel(tvState.currentChannel - 1));
-      document.getElementById('mobileHeartShowerBtn').addEventListener('click', triggerHeartShower);
+      bindClick('mobilePowerBtn', togglePower);
+      bindClick('mobileChNextBtn', () => setChannel(tvState.currentChannel + 1));
+      bindClick('mobileChPrevBtn', () => setChannel(tvState.currentChannel - 1));
+      bindClick('mobileHeartShowerBtn', triggerHeartShower);
 
       // Mobile Drawer Remote
-      document.getElementById('mrcPower').addEventListener('click', togglePower);
-      document.getElementById('mrcMute').addEventListener('click', toggleMute);
-      document.getElementById('mrcToggleLight').addEventListener('click', toggleRoomLighting);
-      document.getElementById('mrcChUp').addEventListener('click', () => setChannel(tvState.currentChannel + 1));
-      document.getElementById('mrcChDown').addEventListener('click', () => setChannel(tvState.currentChannel - 1));
-      document.getElementById('mrcVolUp').addEventListener('click', () => adjustVolume(10));
-      document.getElementById('mrcVolDown').addEventListener('click', () => adjustVolume(-10));
-      document.getElementById('mrcHeartShower').addEventListener('click', triggerHeartShower);
-      document.getElementById('mrcQuickPrev').addEventListener('click', () => setChannel(tvState.currentChannel - 1));
+      bindClick('mrcPower', togglePower);
+      bindClick('mrcMute', toggleMute);
+      bindClick('mrcToggleLight', toggleRoomLighting);
+      bindClick('mrcChUp', () => setChannel(tvState.currentChannel + 1));
+      bindClick('mrcChDown', () => setChannel(tvState.currentChannel - 1));
+      bindClick('mrcVolUp', () => adjustVolume(10));
+      bindClick('mrcVolDown', () => adjustVolume(-10));
+      bindClick('mrcHeartShower', triggerHeartShower);
+      bindClick('mrcQuickPrev', () => setChannel(tvState.currentChannel - 1));
 
       document.querySelectorAll('#mobileRemoteModal [data-channel]').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -1360,6 +1488,39 @@
           setChannel(ch);
         });
       });
+
+      // Audio Player Progress & State Tracking
+      const songTrack = document.getElementById('shadiaAudioTrack');
+      if (songTrack) {
+        songTrack.addEventListener('timeupdate', () => {
+          const cur = document.getElementById('audioCurrentTime');
+          const dur = document.getElementById('audioDuration');
+          const bar = document.getElementById('audioProgressBar');
+          if (cur && songTrack.currentTime) {
+            const m = Math.floor(songTrack.currentTime / 60);
+            const s = Math.floor(songTrack.currentTime % 60);
+            cur.textContent = `${m}:${s < 10 ? '0' : ''}${s}`;
+          }
+          if (dur && songTrack.duration) {
+            const dm = Math.floor(songTrack.duration / 60);
+            const ds = Math.floor(songTrack.duration % 60);
+            dur.textContent = `${dm}:${ds < 10 ? '0' : ''}${ds}`;
+          }
+          if (bar && songTrack.duration) {
+            bar.style.width = `${(songTrack.currentTime / songTrack.duration) * 100}%`;
+          }
+        });
+        songTrack.addEventListener('ended', () => {
+          const vinyl = document.getElementById('vinylRecord');
+          const icon = document.getElementById('songBtnIcon');
+          const txt = document.getElementById('songBtnText');
+          const eq = document.getElementById('audioEqualizer');
+          if (vinyl) vinyl.style.animationPlayState = 'paused';
+          if (icon) icon.className = 'fa-solid fa-play text-[9px]';
+          if (txt) txt.textContent = 'تشغيل الأغنية';
+          if (eq) eq.classList.add('paused-eq');
+        });
+      }
 
       // Initial Setup
       setChannel(3);
