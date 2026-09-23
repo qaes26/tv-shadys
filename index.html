@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>غرفة الغرام | هدية خاصة لحبيبتي شادية 💖</title>
+  
+  <!-- SEO & Social Meta -->
+  <meta name="description" content="غرفة معيشة رومانسية وتلفزيون كلاسيكي تفاعلي مصمم بحب خصيصاً لأميرة القلوب شادية">
+  <meta name="theme-color" content="#13081a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700;900&family=Reem+Kufi:wght@500;700&family=Alexandria:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            cairo: ['Cairo', 'sans-serif'],
+            amiri: ['Amiri', 'serif'],
+            kufi: ['Reem Kufi', 'sans-serif'],
+            alex: ['Alexandria', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Tone.js for Web Audio Synthesis -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+
+  <!-- Mobile-First Custom CSS -->
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      min-height: 100%;
+      background-color: #0b040f;
+      color: #f3e8f8;
+      font-family: 'Cairo', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Mobile Container Frame */
+    .mobile-frame {
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      min-height: 100vh;
+      position: relative;
+      background: 
+        radial-gradient(circle at 50% 30%, rgba(68, 28, 62, 0.5) 0%, rgba(15, 6, 19, 0.98) 70%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1.5px, transparent 1.5px, transparent 36px),
+        linear-gradient(180deg, #1b0c22 0%, #110617 60%, #08020b 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 0 50px rgba(0,0,0,0.9);
+      transition: all 0.7s ease;
+    }
+
+    /* Lighting Mode: Dim Romantic */
+    body.lighting-dim .mobile-frame {
+      background: 
+        radial-gradient(circle at 50% 35%, rgba(45, 14, 40, 0.6) 0%, rgba(5, 2, 7, 0.99) 75%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.008) 0px, rgba(255,255,255,0.008) 1.5px, transparent 1.5px, transparent 36px),
+        linear-gradient(180deg, #0d0412 0%, #050107 100%);
+    }
+
+    /* Ceiling Lamp */
+    .ceiling-lamp {
+      cursor: pointer;
+      transform-origin: top center;
+      animation: gentleSway 5s ease-in-out infinite alternate;
+    }
+    @keyframes gentleSway {
+      0% { transform: rotate(-1.5deg); }
+      100% { transform: rotate(1.5deg); }
+    }
+    .lamp-glow {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(253, 230, 138, 0.4) 0%, rgba(245, 158, 11, 0.12) 45%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+    }
+    body.lighting-dim .lamp-glow {
+      opacity: 0.15;
+    }
+
+    /* Ambilight (Backlight Glow behind TV) */
+    .ambilight {
+      position: absolute;
+      inset: -15px;
+      border-radius: 36px;
+      filter: blur(35px);
+      z-index: 1;
+      opacity: 0.85;
+      transition: all 0.6s ease;
+      pointer-events: none;
+    }
+    .ambilight.off {
+      opacity: 0 !important;
+    }
+
+    /* Retro TV Cabinet (Mobile Optimized) */
+    .tv-cabinet {
+      position: relative;
+      background: linear-gradient(145deg, #441e12 0%, #291007 50%, #1a0802 100%);
+      border: 6px solid #5a2a1b;
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.9),
+        inset 0 2px 4px rgba(255,255,255,0.2),
+        inset 0 -3px 6px rgba(0,0,0,0.7);
+      border-radius: 24px;
+      z-index: 5;
+    }
+
+    /* CRT Bezel & Screen */
+    .crt-bezel {
+      background: linear-gradient(135deg, #181319 0%, #0a080b 100%);
+      border-radius: 18px;
+      padding: 8px;
+      box-shadow: inset 0 3px 8px rgba(0,0,0,0.95);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .crt-screen-wrapper {
+      position: relative;
+      background-color: #050206;
+      border-radius: 14px;
+      overflow: hidden;
+      aspect-ratio: 4 / 4.7; /* Perfect tall aspect ratio for mobile video */
+      box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.95);
+    }
+
+    /* Scanline & Curved Glass Glare */
+    .crt-scanlines {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.28) 50%);
+      background-size: 100% 3.5px;
+      z-index: 25;
+      pointer-events: none;
+      opacity: 0.65;
+    }
+    .crt-glass-glare {
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(circle at 50% 50%, transparent 65%, rgba(0, 0, 0, 0.55) 100%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.01) 30%, transparent 45%);
+      pointer-events: none;
+      z-index: 26;
+      border-radius: 14px;
+    }
+
+    /* Static Canvas */
+    #staticCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 24;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.12s ease-out;
+    }
+    #staticCanvas.active {
+      opacity: 0.92;
+    }
+
+    /* Off Screen Overlay */
+    .crt-off-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 50%, #151118 0%, #050206 80%);
+      z-index: 27;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease, visibility 0.3s;
+    }
+    .crt-off-overlay.hidden-screen {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* Channel Content Container */
+    .channel-content {
+      position: absolute;
+      inset: 0;
+      z-index: 10;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .channel-content.active {
+      display: flex;
+      animation: crtTurnOn 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    @keyframes crtTurnOn {
+      0% { transform: scaleY(0.01) scaleX(0.8); opacity: 0.5; filter: brightness(4); }
+      50% { transform: scaleY(1.03) scaleX(0.98); filter: brightness(1.8); }
+      100% { transform: scaleY(1) scaleX(1); opacity: 1; filter: brightness(1); }
+    }
+
+    /* Wooden Table Under TV */
+    .tv-table {
+      position: relative;
+      width: 100%;
+      background: linear-gradient(180deg, #4d2313 0%, #341508 50%, #1e0903 100%);
+      border-radius: 12px;
+      box-shadow: 0 15px 25px rgba(0,0,0,0.8), inset 0 2px 4px rgba(255,255,255,0.18);
+      z-index: 6;
+      margin-top: 4px;
+    }
+    .table-top-lip {
+      height: 14px;
+      background: linear-gradient(90deg, #5e2d19 0%, #753920 50%, #5e2d19 100%);
+      border-radius: 10px 10px 0 0;
+    }
+
+    /* Interactive Candle Flame */
+    .candle-flame {
+      width: 13px;
+      height: 22px;
+      background: linear-gradient(180deg, #fffbeb 0%, #fef08a 25%, #f59e0b 60%, #ea580c 90%);
+      border-radius: 50% 50% 25% 25% / 70% 70% 30% 30%;
+      box-shadow: 0 0 14px #f59e0b, 0 0 28px #ea580c;
+      animation: flicker 2.4s ease-in-out infinite alternate;
+      transform-origin: bottom center;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    @keyframes flicker {
+      0% { transform: scale(1) rotate(-1.5deg); }
+      50% { transform: scale(1.05, 0.95) rotate(2deg); }
+      100% { transform: scale(0.97, 1.03) rotate(-1.5deg); }
+    }
+    .candle-flame.out {
+      opacity: 0;
+      transform: scale(0.1);
+    }
+    .candle-smoke {
+      position: absolute;
+      top: -12px;
+      width: 4px;
+      height: 16px;
+      background: rgba(220, 220, 220, 0.4);
+      border-radius: 50%;
+      filter: blur(2px);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .candle-smoke.puff {
+      animation: smokeRise 1s ease-out forwards;
+    }
+    @keyframes smokeRise {
+      0% { opacity: 0.8; transform: translateY(0) scale(1); }
+      100% { opacity: 0; transform: translateY(-24px) scale(2.5); }
+    }
+
+    /* Coffee Steam */
+    .steam-container {
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 4px;
+      pointer-events: none;
+    }
+    .steam-line {
+      width: 3px;
+      height: 18px;
+      background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+      border-radius: 50%;
+      filter: blur(1.5px);
+      animation: steamAnim 2.8s infinite ease-out;
+    }
+    .steam-line:nth-child(2) { animation-delay: 0.9s; }
+    .steam-line:nth-child(3) { animation-delay: 1.8s; }
+    @keyframes steamAnim {
+      0% { transform: translateY(0) scaleX(1); opacity: 0; }
+      50% { opacity: 0.6; transform: translateY(-12px) scaleX(1.8); }
+      100% { transform: translateY(-24px) scaleX(2.2); opacity: 0; }
+    }
+
+    /* Parquet Floor */
+    .parquet-floor {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 140px;
+      background: 
+        linear-gradient(180deg, rgba(8,3,10,0.9) 0%, rgba(18,7,12,0.4) 100%),
+        repeating-linear-gradient(60deg, rgba(0,0,0,0.18) 0px, rgba(0,0,0,0.18) 1px, transparent 1px, transparent 20px),
+        repeating-linear-gradient(-60deg, rgba(0,0,0,0.18) 0px, rgba(0,0,0,0.18) 1px, transparent 1px, transparent 20px),
+        linear-gradient(90deg, #33160b 0%, #441f11 30%, #250c05 60%, #441f11 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Floating Heart Particles */
+    .heart-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: floatUp 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+    @keyframes floatUp {
+      0% { opacity: 1; transform: translateY(0) scale(0.6) rotate(0deg); }
+      50% { opacity: 0.9; transform: translateY(-45vh) scale(1.1) rotate(20deg); }
+      100% { opacity: 0; transform: translateY(-95vh) scale(1.3) rotate(-20deg); }
+    }
+
+    /* News Ticker Scroll */
+    @keyframes tickerScroll {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee {
+      display: inline-block;
+      white-space: nowrap;
+      animation: tickerScroll 20s linear infinite;
+    }
+
+    /* Equalizer Bars */
+    .eq-bar {
+      width: 7px;
+      background: linear-gradient(180deg, #ec4899 0%, #8b5cf6 60%, #3b82f6 100%);
+      border-radius: 4px 4px 0 0;
+      animation: eqBounce 1s ease-in-out infinite alternate;
+      height: 20%;
+    }
+    .eq-bar:nth-child(1) { animation-duration: 0.6s; }
+    .eq-bar:nth-child(2) { animation-duration: 0.9s; }
+    .eq-bar:nth-child(3) { animation-duration: 0.4s; }
+    .eq-bar:nth-child(4) { animation-duration: 0.8s; }
+    .eq-bar:nth-child(5) { animation-duration: 1.1s; }
+    .eq-bar:nth-child(6) { animation-duration: 0.7s; }
+    @keyframes eqBounce {
+      0% { height: 15%; }
+      100% { height: 95%; }
+    }
+
+    /* IR Blaster Glow */
+    .ir-blaster {
+      width: 12px;
+      height: 12px;
+      background: #470d18;
+      border-radius: 50%;
+      margin: 0 auto;
+      transition: all 0.15s ease;
+    }
+    .ir-blaster.blink {
+      background: #ff1e4b;
+      box-shadow: 0 0 14px #ff1e4b, 0 0 24px #ff4d72;
+    }
+
+    /* Remote Button Tactile */
+    .remote-btn {
+      background: linear-gradient(180deg, #372a3e 0%, #251b2a 100%);
+      color: #e5d8ea;
+      border: 1px solid #4a3a53;
+      border-radius: 12px;
+      box-shadow: 0 3px 5px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.15);
+      transition: all 0.1s ease;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .remote-btn:active {
+      transform: translateY(2px);
+      filter: brightness(1.2);
+    }
+    .remote-btn.power {
+      background: linear-gradient(180deg, #dc2626 0%, #991b1b 100%);
+      border-color: #ef4444;
+      color: #fff;
+    }
+
+    /* Toast Notification */
+    #toastNotification {
+      position: fixed;
+      bottom: 85px;
+      left: 16px;
+      right: 16px;
+      max-width: 360px;
+      margin: 0 auto;
+      z-index: 9999;
+      pointer-events: none;
+      transform: translateY(140%);
+      opacity: 0;
+      transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    #toastNotification.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Romantic Modal */
+    .romantic-modal {
+      transition: opacity 0.25s ease, visibility 0.25s;
+      backdrop-filter: blur(8px);
+    }
+    .romantic-modal.hidden-modal {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="lighting-warm font-cairo">
+
+  <!-- Mobile Viewport Wrapper (Fits smartphone screens 100%) -->
+  <div class="mobile-frame pb-24">
+
+    <!-- Ceiling Hanging Lamp -->
+    <div class="ceiling-lamp relative pt-0 flex flex-col items-center z-20 cursor-pointer" id="ceilingLamp" title="انقر لتغيير إضاءة الغرفة">
+      <!-- Lamp Cord -->
+      <div class="w-1 h-14 bg-gradient-to-b from-stone-800 to-amber-700 shadow-sm"></div>
+      <!-- Fixture -->
+      <div class="relative flex flex-col items-center">
+        <div class="w-14 h-7 bg-gradient-to-b from-amber-600 via-amber-700 to-amber-900 rounded-t-full shadow-lg border-t border-amber-400/40"></div>
+        <div class="w-16 h-2.5 bg-amber-800 rounded-full shadow-inner"></div>
+        <!-- Light Bulb -->
+        <div class="w-5 h-5 bg-amber-100 rounded-full -mt-1.5 shadow-[0_0_20px_#fef08a]" id="lampBulb"></div>
+      </div>
+      <!-- Ambient Glow Behind Lamp -->
+      <div class="lamp-glow"></div>
+    </div>
+
+    <!-- Header Romantic Dedication -->
+    <header class="text-center px-4 pt-1 z-10">
+      <div class="inline-block bg-pink-950/60 border border-pink-500/30 px-3 py-0.5 rounded-full mb-1">
+        <span class="text-[11px] text-pink-300 font-alex">✦ إهداء من صميم القلب ✦</span>
+      </div>
+      <h1 class="text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-rose-200 to-amber-200 font-amiri leading-tight">
+        إلى خطيبتي الغالية وأميرة قلبي "شادية" 💕
+      </h1>
+    </header>
+
+    <!-- Main TV Screen Section -->
+    <main class="w-full px-3 z-10 my-auto">
+      
+      <!-- Relative Wrapper for TV Cabinet & Ambilight -->
+      <div class="relative w-full">
+        
+        <!-- Dynamic Ambilight Backlight -->
+        <div class="ambilight" id="tvAmbilight" style="background: rgba(236, 72, 153, 0.65);"></div>
+
+        <!-- TV Wooden Cabinet -->
+        <div class="tv-cabinet w-full p-2.5">
+          
+          <!-- CRT Bezel -->
+          <div class="crt-bezel">
+            
+            <!-- CRT Screen Area (Swipe Left/Right Supported) -->
+            <div class="crt-screen-wrapper" id="tvScreenArea">
+              
+              <!-- CRT Scanlines Overlay -->
+              <div class="crt-scanlines"></div>
+
+              <!-- Curved Glass Glare Overlay -->
+              <div class="crt-glass-glare"></div>
+
+              <!-- Noise Canvas for Switching Channels -->
+              <canvas id="staticCanvas"></canvas>
+
+              <!-- Screen Off Overlay -->
+              <div class="crt-off-overlay hidden-screen" id="screenOffOverlay">
+                <div class="w-2.5 h-2.5 rounded-full bg-red-600/80 shadow-[0_0_12px_#ef4444] animate-pulse"></div>
+                <p class="text-stone-400 text-xs font-alex mt-2 tracking-wider">التلفاز في وضع الاستعداد</p>
+                <p class="text-stone-500 text-[10px] font-alex mt-0.5">انقر زر التشغيل بالأسفل 📺</p>
+              </div>
+
+              <!-- Top TV Bar: Clock & Channel Title -->
+              <div class="absolute top-2 right-2.5 left-2.5 flex justify-between items-center z-30 text-[10px] font-mono text-white/90 pointer-events-none drop-shadow">
+                <div class="flex items-center gap-1 bg-black/50 px-2 py-0.5 rounded backdrop-blur-xs">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                  <span id="tvRealTime">00:00:00</span>
+                </div>
+                <div class="flex items-center gap-1 bg-black/50 px-2 py-0.5 rounded backdrop-blur-xs font-alex text-pink-300 font-bold" id="tvWatermark">
+                  CH 03 • شبيهة بلحضاتنا 🎬
+                </div>
+              </div>
+
+
+              <!-- ==================== CHANNEL 3: شبيهة بلحضاتنا (الفيديو الأصلي) ==================== -->
+              <div class="channel-content active" id="channel3">
+                <div class="relative w-full h-full bg-black flex flex-col justify-between overflow-hidden">
+                  
+                  <!-- Top Channel Badge -->
+                  <div class="absolute top-7 left-0 right-0 z-20 bg-gradient-to-b from-black/80 to-transparent pt-1 pb-2 px-3 flex items-center justify-between pointer-events-none">
+                    <span class="bg-red-600 text-white font-extrabold text-[9px] px-2 py-0.5 rounded shadow flex items-center gap-1">
+                      <i class="fa-solid fa-film text-[8px]"></i> سينما الغرام
+                    </span>
+                    <span class="text-[10px] text-pink-300 font-alex">إهداء لأميرة قلبي شادية ♥</span>
+                  </div>
+
+                  <!-- Native HTML5 Video Player inside CRT -->
+                  <div class="relative w-full h-full flex items-center justify-center pt-8 pb-10">
+                    <video 
+                      id="shadiaNativeVideo"
+                      class="w-full h-full object-cover rounded-lg shadow-2xl"
+                      autoplay
+                      loop
+                      playsinline
+                      controls
+                    >
+                      <source src="./shadia_video.mp4" type="video/mp4">
+                      <source src="./%D9%83%D9%8F%D9%84%20%D9%84%D8%AD%D8%B8%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AD%D9%8F%D8%A8%20%D8%B9%D8%A7%D9%8A%D8%B4%D9%87%D9%80%D8%A7%20%F0%9F%A4%8D!%20%23%D8%A8%D8%AF%D9%88%D9%86%D8%AD%D9%82%D9%88%D9%82%20%23%D8%A7%D9%82%D8%B3%D8%A8%D9%84%D9%88%D8%B1%20%23%D8%AA%D8%B5%D9%85%D9%8A%D9%85%20%23%D8%AD%D8%A8%20%23%D9%84%D8%A7%D9%8A%D9%83%20%23%D8%AA%D8%B5%D9%85%D9%8A%D9%85%D9%8A%20%23%D8%AA%D8%B5%D9%85%D9%8A%D9%85_%D9%81%D9%8A%D8%AF%D9%8A%D9%88%D9%87%D8%A7%D8%AA.mp4" type="video/mp4">
+                    </video>
+                  </div>
+
+                  <!-- Bottom Overlay: شبيهة بلحضاتنا -->
+                  <div class="absolute bottom-1.5 left-2 right-2 z-20 bg-black/90 backdrop-blur-md border border-yellow-500/50 rounded-xl px-2.5 py-1.5 flex items-center justify-between shadow-2xl">
+                    <div class="flex items-center gap-1.5">
+                      <span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
+                      <h4 class="text-xs sm:text-sm font-black text-yellow-300 font-amiri tracking-wide drop-shadow">
+                        شبيهة بلحضاتنا 💕
+                      </h4>
+                    </div>
+                    <button onclick="toggleVideoSound()" class="text-[10px] text-white bg-pink-600/90 active:scale-95 px-2.5 py-0.5 rounded-full flex items-center gap-1 font-alex shadow" id="btnVideoSoundToggle">
+                      <i class="fa-solid fa-volume-high text-[8px]" id="videoSoundIcon"></i> <span>صوت الفيديو</span>
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+
+
+              <!-- ==================== CHANNEL 1: شادية الإخبارية (عاجل) ==================== -->
+              <div class="channel-content" id="channel1">
+                <div class="relative w-full h-full bg-gradient-to-b from-red-950 via-slate-900 to-red-950 flex flex-col justify-between p-3">
+                  <div class="flex items-center justify-between border-b border-red-500/40 pb-1 mt-6">
+                    <span class="bg-red-600 text-white font-extrabold text-[9px] px-1.5 py-0.5 rounded uppercase animate-pulse">
+                      🔴 مباشر
+                    </span>
+                    <h2 class="text-xs font-bold text-red-200">أخبار الغرام | شادية نيوز</h2>
+                  </div>
+                  <div class="my-auto text-center px-1">
+                    <div class="inline-block bg-red-700 text-white font-bold text-[10px] px-2 py-0.5 rounded-t">
+                      🚨 بيان عاجل ورسمي 🚨
+                    </div>
+                    <div class="bg-black/60 border border-red-500/40 rounded-lg p-2.5 shadow-xl">
+                      <h3 class="text-sm font-bold text-amber-300 font-amiri leading-relaxed">
+                        استيلاء كامل على نبضات القلب وإعلان "شادية" أميرة متوجة للأبد!
+                      </h3>
+                      <p class="text-[11px] text-gray-200 mt-1 font-alex leading-relaxed">
+                        أكدت مصادر الحب الرسمية استسلامي التام أمام سحر ابتسامتكِ وجمال روحكِ يا شادية.
+                      </p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-1.5 mt-2 text-[9px]">
+                      <div class="bg-red-950/80 border border-red-800/60 rounded p-1">
+                        <div class="text-gray-400">النبض</div>
+                        <div class="text-pink-400 font-bold">198 BPM 💕</div>
+                      </div>
+                      <div class="bg-red-950/80 border border-red-800/60 rounded p-1">
+                        <div class="text-gray-400">الغرام</div>
+                        <div class="text-emerald-400 font-bold">1000% ∞</div>
+                      </div>
+                      <div class="bg-red-950/80 border border-red-800/60 rounded p-1">
+                        <div class="text-gray-400">الطقس</div>
+                        <div class="text-amber-300 font-bold">أمطار ورد</div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- News Marquee Ticker -->
+                  <div class="bg-red-900 border-t border-amber-400 flex items-center overflow-hidden py-0.5 px-2 -mx-3 -mb-3">
+                    <div class="bg-amber-400 text-red-950 font-black text-[10px] px-2 py-0.5 rounded shrink-0">
+                      عاجـل
+                    </div>
+                    <div class="overflow-hidden w-full whitespace-nowrap pl-2">
+                      <span class="animate-marquee text-xs font-bold text-white">
+                        ••• عاجل: شادية هي أجمل إنسانة على كوكب الأرض ••• تقرير: لا أحد يضاهي رقة شادية وابتسامتها ••• مرسوم رئاسي: ممنوع زعل شادية أبداً •••
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- ==================== CHANNEL 2: ناشيونال شاديوغرافيك ==================== -->
+              <div class="channel-content" id="channel2">
+                <div class="relative w-full h-full bg-gradient-to-b from-stone-900 via-emerald-950 to-stone-950 flex flex-col justify-between p-3 font-mono">
+                  <div class="flex items-center justify-between text-[10px] text-emerald-400 pt-6">
+                    <span class="bg-black/60 px-2 py-0.5 rounded border border-emerald-500/30 text-white font-bold flex items-center gap-1">
+                      <span class="w-2 h-2 rounded-full bg-red-600 animate-pulse"></span> REC [4K]
+                    </span>
+                    <span>BAT 99% <i class="fa-solid fa-battery-full text-emerald-300"></i></span>
+                  </div>
+                  <div class="my-auto text-center px-2">
+                    <div class="border border-emerald-500/30 p-3 rounded-lg bg-black/50">
+                      <span class="inline-block bg-yellow-500 text-black font-black text-[9px] px-2 py-0.5 rounded mb-1">
+                        NATIONAL SHADIOGRAPHIC
+                      </span>
+                      <h3 class="text-sm font-bold text-amber-200 font-amiri mb-1">
+                        أندر وأجمل كائن على وجه المعمورة 🕊️
+                      </h3>
+                      <p class="text-[11px] text-gray-200 font-alex leading-relaxed">
+                        "تم توثيق الكائن الأرق والأجمل في الكون: «شادية».. مخلوقة من طين الورد ونور القمر، وموطنها الأصلي: داخل قلبي للأبد."
+                      </p>
+                    </div>
+                  </div>
+                  <div class="text-[9px] text-emerald-400 border-t border-emerald-500/20 pt-1 text-center font-alex">
+                    الفصيلة: ملكة القلوب • الحالة: محمية بالحب الأبدي
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- ==================== CHANNEL 4: شادية MTV للموسيقى ==================== -->
+              <div class="channel-content" id="channel4">
+                <div class="relative w-full h-full bg-gradient-to-b from-indigo-950 via-purple-950 to-pink-950 flex flex-col justify-between p-3">
+                  <div class="flex items-center justify-between border-b border-pink-500/30 pb-1 mt-6">
+                    <span class="bg-gradient-to-r from-pink-500 to-indigo-500 text-white font-black text-[9px] px-2 py-0.5 rounded">
+                      SHADIA MTV
+                    </span>
+                    <span class="text-pink-300 text-[10px] animate-pulse">
+                      <i class="fa-solid fa-music"></i> أنغام الغرام
+                    </span>
+                  </div>
+                  <div class="my-auto flex flex-col items-center justify-center text-center">
+                    <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-pink-600 to-amber-500 p-0.5 shadow-lg animate-spin" style="animation-duration: 8s;">
+                      <div class="w-full h-full rounded-full bg-zinc-900 flex items-center justify-center">
+                        <i class="fa-solid fa-heart text-pink-400 text-base"></i>
+                      </div>
+                    </div>
+                    <h3 class="text-sm font-bold text-white font-amiri mt-2">
+                      لحن الوفاء لعيون شادية 🎵
+                    </h3>
+                    <p class="text-[11px] text-pink-200 font-alex mt-0.5">
+                      "يا صوتكِ اللي لو سرى في مسمعي.. أزهر خريفي وابتسم كل الوجود"
+                    </p>
+                    <button id="btnPlayMelody" class="mt-2.5 bg-pink-600 hover:bg-pink-500 active:scale-95 text-white text-xs px-3.5 py-1 rounded-full shadow flex items-center gap-1.5">
+                      <i class="fa-solid fa-play text-[9px]"></i> عزف مقطوعة الحب
+                    </button>
+                    <!-- Equalizer -->
+                    <div class="flex items-end justify-center gap-1.5 h-8 mt-2 w-36">
+                      <div class="eq-bar"></div>
+                      <div class="eq-bar"></div>
+                      <div class="eq-bar"></div>
+                      <div class="eq-bar"></div>
+                      <div class="eq-bar"></div>
+                      <div class="eq-bar"></div>
+                    </div>
+                  </div>
+                  <div class="text-center text-[9px] text-pink-300/70 border-t border-pink-500/20 pt-1 font-alex">
+                    موسيقى عذبة مخصصة لأذن شادية الرقيقة 🎧
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- ==================== CHANNEL 5: قناة بيت العمر ==================== -->
+              <div class="channel-content" id="channel5">
+                <div class="relative w-full h-full bg-gradient-to-b from-amber-950 via-stone-900 to-amber-950 flex flex-col justify-between p-3">
+                  <div class="flex items-center justify-between border-b border-amber-600/40 pb-1 mt-6">
+                    <span class="bg-amber-600 text-stone-950 font-black text-[9px] px-1.5 py-0.5 rounded">
+                      HOME & LIFE
+                    </span>
+                    <span class="text-xs font-bold text-amber-200 font-cairo">برنامج: عش الزوجية 🏡</span>
+                  </div>
+                  <div class="my-auto text-center px-1">
+                    <div class="bg-stone-900/80 border border-amber-500/30 rounded-lg p-2.5 text-right font-alex text-[11px] text-amber-100 space-y-1.5">
+                      <div class="text-center text-amber-300 font-bold mb-1 font-cairo text-xs">
+                        وصفة السعادة لبيتنا القادم مع شادية:
+                      </div>
+                      <div>☕ <strong>صباحات معطرة:</strong> قهوة محلاة بضحكة شادية وإشراقة عيونها.</div>
+                      <div>🏡 <strong>ركن دافئ:</strong> شرفة بالياسمين وسكينة لا تنقطع.</div>
+                      <div>💖 <strong>عهد دائم:</strong> بيت لا يدخل منه إلا السلام والرضا.</div>
+                      <div>🛡️ <strong>وعد رجولي:</strong> سأكون لكِ السند والأمان طوال العمر.</div>
+                    </div>
+                  </div>
+                  <div class="text-center text-[9px] text-amber-300 border-t border-amber-600/30 pt-1 font-alex">
+                    اللهم اجمعنا على خير وبارك لنا في حبنا 🤲✨
+                  </div>
+                </div>
+              </div>
+
+            </div> <!-- End crt-screen-wrapper -->
+
+          </div> <!-- End crt-bezel -->
+
+          <!-- TV Hardware Bezel Strip -->
+          <div class="flex items-center justify-between pt-2 px-1 text-xs">
+            <span class="text-[10px] font-bold text-amber-500 font-alex">
+              SHADIA VISION ✦
+            </span>
+            <div class="flex items-center gap-1 bg-black/60 px-2 py-0.5 rounded-full border border-stone-700">
+              <span class="text-[9px] text-stone-400">CH:</span>
+              <span class="text-[11px] font-bold text-amber-400 font-mono" id="hwChannelNum">3</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_6px_#10b981]" id="powerLed"></div>
+              <button id="btnHwPower" class="w-6 h-6 bg-red-700 hover:bg-red-600 text-white rounded-full flex items-center justify-center text-[10px] active:scale-90" title="تشغيل / إيقاف">
+                <i class="fa-solid fa-power-off"></i>
+              </button>
+            </div>
+          </div>
+
+        </div> <!-- End tv-cabinet -->
+
+        <!-- Wooden Table Under TV & Interactive Props -->
+        <div class="tv-table w-full">
+          <div class="table-top-lip"></div>
+          <div class="flex items-end justify-around px-2 py-2 relative min-h-[58px]">
+            
+            <!-- Candle -->
+            <div class="cursor-pointer flex flex-col items-center group" id="candleProp" title="شمعة الغرام">
+              <div class="candle-flame" id="candleFlame"></div>
+              <div class="candle-smoke" id="candleSmoke"></div>
+              <div class="w-4 h-6 bg-gradient-to-r from-amber-100 to-amber-200 rounded-t-sm shadow relative border-t border-amber-300"></div>
+              <div class="w-6 h-1.5 bg-amber-700 rounded-full shadow"></div>
+              <span class="text-[8px] text-amber-200 font-alex mt-0.5">شمعة</span>
+            </div>
+
+            <!-- Love Letter -->
+            <div class="cursor-pointer flex flex-col items-center" id="loveLetterProp" title="همسة سرية">
+              <div class="w-10 h-6 bg-gradient-to-b from-[#fbf3db] to-[#ebdcb4] rounded shadow border border-amber-300 flex items-center justify-center transform -rotate-3">
+                <div class="w-3.5 h-3.5 bg-red-700 rounded-full flex items-center justify-center text-white text-[6px]">
+                  <i class="fa-solid fa-heart"></i>
+                </div>
+              </div>
+              <span class="text-[8px] text-pink-200 font-alex mt-0.5">همسة سرية</span>
+            </div>
+
+            <!-- Coffee Cup -->
+            <div class="cursor-pointer flex flex-col items-center relative" id="coffeeProp" title="قهوة الصباح">
+              <div class="steam-container">
+                <div class="steam-line"></div>
+                <div class="steam-line"></div>
+              </div>
+              <div class="w-6 h-5 bg-stone-100 rounded-b-lg border border-stone-200 shadow relative flex items-center justify-center">
+                <i class="fa-solid fa-heart text-pink-500 text-[8px]"></i>
+              </div>
+              <div class="w-8 h-1 bg-stone-300 rounded-full shadow"></div>
+              <span class="text-[8px] text-amber-200 font-alex mt-0.5">قهوة</span>
+            </div>
+
+            <!-- Picture Frame -->
+            <div class="cursor-pointer flex flex-col items-center" id="frameProp" title="ميثاق العشق">
+              <div class="w-8 h-10 bg-gradient-to-b from-amber-400 to-amber-600 p-0.5 rounded shadow border border-amber-200 flex flex-col items-center justify-center transform rotate-2">
+                <div class="w-full h-full bg-purple-950 rounded flex flex-col items-center justify-center text-center p-0.5">
+                  <i class="fa-solid fa-crown text-amber-300 text-[8px]"></i>
+                  <span class="text-[6.5px] text-pink-200 font-amiri font-bold leading-tight">شادية</span>
+                </div>
+              </div>
+              <span class="text-[8px] text-amber-200 font-alex mt-0.5">ميثاق العشق</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div> <!-- End relative TV wrapper -->
+
+    </main>
+
+    <!-- Parquet Floor Ground -->
+    <div class="parquet-floor"></div>
+
+    <!-- Mobile Fixed Bottom Controller Dock (Phone-Friendly) -->
+    <nav class="fixed bottom-2 left-2 right-2 max-w-[424px] mx-auto z-40 bg-zinc-950/95 border border-purple-800/60 rounded-2xl p-2 shadow-2xl backdrop-blur-md flex items-center justify-between">
+      
+      <!-- Power & Channel Navigation -->
+      <div class="flex items-center gap-1.5">
+        <button id="mobilePowerBtn" class="w-9 h-9 bg-red-600 hover:bg-red-500 active:scale-95 text-white rounded-xl flex items-center justify-center shadow">
+          <i class="fa-solid fa-power-off text-xs"></i>
+        </button>
+        <button id="mobileChPrevBtn" class="w-8 h-8 bg-zinc-800 hover:bg-zinc-700 active:scale-95 text-zinc-200 rounded-xl flex items-center justify-center border border-zinc-700">
+          <i class="fa-solid fa-chevron-right text-[10px]"></i>
+        </button>
+        <button id="mobileChNextBtn" class="w-8 h-8 bg-zinc-800 hover:bg-zinc-700 active:scale-95 text-zinc-200 rounded-xl flex items-center justify-center border border-zinc-700">
+          <i class="fa-solid fa-chevron-left text-[10px]"></i>
+        </button>
+      </div>
+
+      <!-- Quick Video Button: شبيهة بلحضاتنا -->
+      <button onclick="setChannel(3)" class="bg-gradient-to-r from-purple-900 to-pink-900 hover:from-purple-800 hover:to-pink-800 active:scale-95 text-yellow-300 text-xs font-bold px-3 py-1.5 rounded-xl flex items-center gap-1.5 border border-pink-500/50 shadow">
+        <i class="fa-solid fa-film text-pink-400"></i>
+        <span>شبيهة بلحضاتنا</span>
+      </button>
+
+      <!-- Magic Hearts Button -->
+      <button id="mobileHeartShowerBtn" class="w-9 h-9 bg-gradient-to-tr from-pink-600 to-rose-500 active:scale-95 text-white rounded-xl flex items-center justify-center shadow" title="إمطار القلوب لشادية">
+        <i class="fa-solid fa-heart text-sm animate-pulse"></i>
+      </button>
+
+      <!-- Full Remote Modal Button -->
+      <button id="openMobileRemoteBtn" class="w-9 h-9 bg-purple-950 hover:bg-purple-900 active:scale-95 text-pink-200 rounded-xl flex items-center justify-center border border-purple-500/40" title="ريموت كامل">
+        <i class="fa-solid fa-gamepad text-xs"></i>
+      </button>
+
+    </nav>
+
+  </div> <!-- End mobile-frame -->
+
+
+  <!-- ==================== MODAL 1: Secret Whisper (همسة سرية) ==================== -->
+  <div id="modalSecretWhisper" class="romantic-modal hidden-modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80">
+    <div class="relative w-full max-w-sm bg-gradient-to-b from-[#fbf5e6] to-[#f4e8cb] text-stone-900 rounded-2xl p-5 shadow-2xl border-2 border-amber-300">
+      <button class="absolute top-2.5 left-2.5 text-stone-500 hover:text-stone-800 w-7 h-7 flex items-center justify-center text-lg closeModalBtn">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="text-center mb-3">
+        <div class="w-10 h-10 bg-red-700 text-white rounded-full mx-auto flex items-center justify-center text-base shadow mb-1">
+          <i class="fa-solid fa-envelope-open-text"></i>
+        </div>
+        <span class="text-[10px] text-amber-800 font-bold font-alex uppercase">همسة خاصة إلى شادية</span>
+        <h3 class="text-xl font-bold font-amiri text-stone-900">حبيبتي وخطيبتي الأغلى</h3>
+      </div>
+      <div class="font-amiri text-sm sm:text-base leading-relaxed text-stone-800 space-y-2 bg-amber-50/70 p-3 rounded-xl border border-amber-200">
+        <p>
+          "يا شادية، لو كان بإمكاني أن أصنع لكِ من نجوم السماء عقداً لفعلت، ولو استطعت أن أجمع كل ورود الدنيا لأهديتها لعينيكِ الجميلتين."
+        </p>
+        <p>
+          "أنتِ لستِ مجرد خطيبة، أنتِ السكن والسكينة، وأجمل نعمة اختصني الله بها. أعدكِ أن أكون لكِ قلباً لا يقسو، ويداً لا تفلتكِ أبداً."
+        </p>
+      </div>
+      <div class="mt-4 text-center">
+        <button class="bg-gradient-to-r from-red-600 to-rose-700 text-white font-bold text-xs px-6 py-2 rounded-full shadow closeModalBtn active:scale-95">
+          أحبكِ يا شادية 💕
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================== MODAL 2: Pact of Love (ميثاق العشق) ==================== -->
+  <div id="modalPactOfLove" class="romantic-modal hidden-modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85">
+    <div class="relative w-full max-w-sm bg-gradient-to-b from-purple-950 via-slate-900 to-purple-950 text-white rounded-3xl p-5 shadow-2xl border-2 border-pink-500/50">
+      <button class="absolute top-3 left-3 text-purple-300 hover:text-white w-7 h-7 flex items-center justify-center text-lg closeModalBtn">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="text-center mb-3">
+        <div class="w-11 h-11 bg-gradient-to-tr from-amber-400 to-pink-500 text-purple-950 rounded-full mx-auto flex items-center justify-center text-xl shadow mb-1">
+          <i class="fa-solid fa-scroll"></i>
+        </div>
+        <h3 class="text-xl font-extrabold font-amiri text-pink-200">
+          ميثـاق العشـق الأبـدي 💍
+        </h3>
+        <p class="text-[10px] text-purple-200/80 font-alex">بين قلبي وقلب خطيبتي الغالية شادية</p>
+      </div>
+      <div class="space-y-2 font-alex text-xs text-purple-100 bg-purple-900/40 p-3 rounded-2xl border border-purple-500/30">
+        <div class="flex items-start gap-2">
+          <i class="fa-solid fa-heart text-pink-400 mt-0.5 text-[10px]"></i>
+          <span><strong>البند الأول:</strong> أن تكون ابتسامة شادية هي الأولوية العظمى في كل يوم.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <i class="fa-solid fa-heart text-pink-400 mt-0.5 text-[10px]"></i>
+          <span><strong>البند الثاني:</strong> لا مكان للمبيت على زعل؛ رضا شادية يسبق كل شيء.</span>
+        </div>
+        <div class="flex items-start gap-2">
+          <i class="fa-solid fa-heart text-pink-400 mt-0.5 text-[10px]"></i>
+          <span><strong>البند الثالث:</strong> الالتزام بحمايتكِ وإسعادكِ وبناء بيت دافئ يملؤه الحب والسكينة.</span>
+        </div>
+      </div>
+      <div class="mt-4 text-center">
+        <button class="bg-gradient-to-r from-pink-600 via-rose-600 to-amber-500 text-white font-bold text-xs px-6 py-2 rounded-full shadow closeModalBtn active:scale-95">
+          أبصم بالعشرة على هذا الميثاق ♥
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ==================== MODAL 3: Full Mobile Remote Controller ==================== -->
+  <div id="mobileRemoteModal" class="romantic-modal hidden-modal fixed inset-0 z-50 flex items-end justify-center p-0 bg-black/80">
+    <div class="relative w-full max-w-sm bg-gradient-to-b from-zinc-900 via-purple-950 to-zinc-950 text-white rounded-t-3xl p-5 border-t-2 border-purple-500/40 shadow-2xl">
+      <div class="flex justify-between items-center mb-3">
+        <div class="ir-blaster" id="mobileIrBlaster"></div>
+        <span class="text-xs font-alex text-purple-300">ريموت التحكم الذكي 📱</span>
+        <button class="text-zinc-400 hover:text-white w-7 h-7 flex items-center justify-center text-lg closeModalBtn">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Top Row: Power, Light, Mute -->
+      <div class="flex justify-between items-center mb-3">
+        <button class="remote-btn power w-11 h-11 text-xs font-bold" id="mrcPower" title="تشغيل / إيقاف">
+          <i class="fa-solid fa-power-off"></i>
+        </button>
+        <button class="remote-btn w-10 h-10 text-xs text-amber-300" id="mrcToggleLight" title="إضاءة الغرفة">
+          <i class="fa-solid fa-lightbulb"></i>
+        </button>
+        <button class="remote-btn w-10 h-10 text-xs" id="mrcMute" title="كتم الصوت">
+          <i class="fa-solid fa-volume-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Channel Numbers 1 - 5 -->
+      <div class="grid grid-cols-3 gap-2 mb-3">
+        <button class="remote-btn h-10 text-sm font-bold font-mono" data-channel="1">1</button>
+        <button class="remote-btn h-10 text-sm font-bold font-mono" data-channel="2">2</button>
+        <button class="remote-btn h-10 text-sm font-bold font-mono border-pink-400 text-yellow-300 shadow-[0_0_10px_rgba(244,114,182,0.4)]" data-channel="3" title="قناة: شبيهة بلحضاتنا 🎬">3 ★</button>
+        <button class="remote-btn h-10 text-sm font-bold font-mono" data-channel="4">4</button>
+        <button class="remote-btn h-10 text-sm font-bold font-mono" data-channel="5">5</button>
+        <button class="remote-btn h-10 text-xs text-pink-300" id="mrcQuickPrev" title="القناة السابقة">
+          <i class="fa-solid fa-rotate-left"></i>
+        </button>
+      </div>
+
+      <!-- Channel & Volume Rockers -->
+      <div class="grid grid-cols-2 gap-2 mb-3">
+        <div class="bg-black/40 p-1.5 rounded-xl flex flex-col items-center gap-1 border border-purple-900/50">
+          <span class="text-[9px] text-gray-400">القنوات</span>
+          <div class="flex gap-1.5 w-full">
+            <button class="remote-btn flex-1 h-8 text-xs" id="mrcChDown"><i class="fa-solid fa-chevron-down"></i></button>
+            <button class="remote-btn flex-1 h-8 text-xs" id="mrcChUp"><i class="fa-solid fa-chevron-up"></i></button>
+          </div>
+        </div>
+        <div class="bg-black/40 p-1.5 rounded-xl flex flex-col items-center gap-1 border border-purple-900/50">
+          <span class="text-[9px] text-gray-400">الصوت</span>
+          <div class="flex gap-1.5 w-full">
+            <button class="remote-btn flex-1 h-8 text-xs" id="mrcVolDown"><i class="fa-solid fa-minus"></i></button>
+            <button class="remote-btn flex-1 h-8 text-xs" id="mrcVolUp"><i class="fa-solid fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Magic Hearts Shower -->
+      <button class="remote-btn w-full py-2.5 text-xs font-bold rounded-xl flex items-center justify-center gap-2 bg-gradient-to-r from-pink-600 to-rose-600 text-white" id="mrcHeartShower">
+        <i class="fa-solid fa-heart animate-bounce"></i>
+        <span>إمطار القلوب لشادية 💕</span>
+      </button>
+
+    </div>
+  </div>
+
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="bg-zinc-900/95 border border-pink-500/50 text-pink-100 px-4 py-2 rounded-full shadow-2xl backdrop-blur-md flex items-center justify-center gap-2 text-xs font-alex text-center">
+    <i class="fa-solid fa-bell text-pink-400" id="toastIcon"></i>
+    <span id="toastMessage">مرحباً بكِ يا شادية في شاشتكِ الخاصة!</span>
+  </div>
+
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    const tvState = {
+      isOn: true,
+      currentChannel: 3, // Initial channel: شبيهة بلحضاتنا
+      totalChannels: 5,
+      isMuted: false,
+      volume: 80,
+      isRoomLightWarm: true,
+      isCandleLit: true,
+      isStaticPlaying: false,
+      audioUnlocked: false
+    };
+
+    const channelData = {
+      1: { name: 'شادية الإخبارية (عاجل)', color: 'rgba(220, 38, 38, 0.55)', watermark: 'CH 01 • شادية الإخبارية' },
+      2: { name: 'ناشيونال شاديوغرافيك', color: 'rgba(16, 185, 129, 0.45)', watermark: 'CH 02 • SHADIOGRAPHIC' },
+      3: { name: 'شبيهة بلحضاتنا 🎬 (سينما الغرام)', color: 'rgba(236, 72, 153, 0.65)', watermark: 'CH 03 • شبيهة بلحضاتنا 🎬' },
+      4: { name: 'شادية MTV للموسيقى', color: 'rgba(236, 72, 153, 0.60)', watermark: 'CH 04 • SHADIA MTV' },
+      5: { name: 'قناة بيت العمر', color: 'rgba(245, 158, 11, 0.50)', watermark: 'CH 05 • OUR SWEET HOME' }
+    };
+
+    /* Web Audio Synthesis via Tone.js */
+    let synth = null, noiseSynth = null, melodySynth = null;
+
+    function initAudio() {
+      if (tvState.audioUnlocked) return;
+      try {
+        Tone.start();
+        tvState.audioUnlocked = true;
+        synth = new Tone.MembraneSynth({ pitchDecay: 0.05, octaves: 3, envelope: { attack: 0.001, decay: 0.1, sustain: 0 } }).toDestination();
+        synth.volume.value = -12;
+        noiseSynth = new Tone.NoiseSynth({ noise: { type: 'white' }, envelope: { attack: 0.02, decay: 0.2, sustain: 0 } }).toDestination();
+        noiseSynth.volume.value = -16;
+        melodySynth = new Tone.PolySynth(Tone.Synth, { envelope: { attack: 0.08, decay: 0.4, sustain: 0.4, release: 1.2 } }).toDestination();
+        melodySynth.volume.value = -10;
+
+        // Auto-play local video on first interaction
+        const vid = document.getElementById('shadiaNativeVideo');
+        if (vid && vid.paused && tvState.isOn && tvState.currentChannel === 3) {
+          vid.play().catch(() => {});
+        }
+      } catch (e) {}
+    }
+
+    function playClickSound() {
+      if (!tvState.audioUnlocked) initAudio();
+      if (synth && !tvState.isMuted) {
+        try { synth.triggerAttackRelease('C5', '32n'); } catch(e) {}
+      }
+    }
+
+    function playStaticSound() {
+      if (!tvState.audioUnlocked) initAudio();
+      if (noiseSynth && !tvState.isMuted && tvState.isOn) {
+        try { noiseSynth.triggerAttackRelease('16n'); } catch(e) {}
+      }
+    }
+
+    function playRomanticMelody() {
+      if (!tvState.audioUnlocked) initAudio();
+      if (!melodySynth) return;
+      showToast('يعزف الآن: لحن الوفاء لشادية 🎵', 'fa-music');
+      const now = Tone.now();
+      const notes = [
+        { note: 'E4', time: 0 }, { note: 'G4', time: 0.3 }, { note: 'B4', time: 0.6 },
+        { note: 'D5', time: 0.9 }, { note: 'C5', time: 1.4 }, { note: 'B4', time: 2.0 },
+        { note: 'A4', time: 2.6 }, { note: 'G4', time: 3.2 }, { note: 'C5', time: 3.8 }
+      ];
+      notes.forEach(n => melodySynth.triggerAttackRelease(n.note, '4n', now + n.time));
+    }
+
+    /* CRT Static Canvas */
+    const staticCanvas = document.getElementById('staticCanvas');
+    const ctx = staticCanvas.getContext('2d');
+    let staticAnimFrame = null;
+    staticCanvas.width = 240;
+    staticCanvas.height = 280;
+
+    function renderStaticNoise() {
+      if (!tvState.isStaticPlaying) return;
+      const imgData = ctx.createImageData(staticCanvas.width, staticCanvas.height);
+      const data = imgData.data;
+      for (let i = 0; i < data.length; i += 4) {
+        const val = Math.random() * 255 | 0;
+        data[i] = val; data[i + 1] = val; data[i + 2] = val; data[i + 3] = 255;
+      }
+      ctx.putImageData(imgData, 0, 0);
+      staticAnimFrame = requestAnimationFrame(renderStaticNoise);
+    }
+
+    function triggerScreenStatic(durationMs = 260) {
+      if (!tvState.isOn) return;
+      tvState.isStaticPlaying = true;
+      staticCanvas.classList.add('active');
+      renderStaticNoise();
+      playStaticSound();
+      setTimeout(() => {
+        tvState.isStaticPlaying = false;
+        staticCanvas.classList.remove('active');
+        if (staticAnimFrame) cancelAnimationFrame(staticAnimFrame);
+      }, durationMs);
+    }
+
+    function triggerIrBlaster() {
+      const b = document.getElementById('mobileIrBlaster');
+      if (b) {
+        b.classList.add('blink');
+        setTimeout(() => b.classList.remove('blink'), 180);
+      }
+    }
+
+    /* Toast Notifications */
+    let toastTimeout = null;
+    function showToast(msg, iconClass = 'fa-bell') {
+      const toast = document.getElementById('toastNotification');
+      const msgEl = document.getElementById('toastMessage');
+      const iconEl = document.getElementById('toastIcon');
+      msgEl.textContent = msg;
+      iconEl.className = `fa-solid ${iconClass} text-pink-400`;
+      toast.classList.add('show');
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => toast.classList.remove('show'), 2400);
+    }
+
+    /* Channel Management */
+    function setChannel(channelNumber) {
+      if (!tvState.isOn) {
+        showToast('التلفاز مغلق! اضغط زر POWER أولاً', 'fa-power-off');
+        return;
+      }
+      if (channelNumber < 1) channelNumber = tvState.totalChannels;
+      if (channelNumber > tvState.totalChannels) channelNumber = 1;
+
+      tvState.currentChannel = channelNumber;
+      triggerIrBlaster();
+      playClickSound();
+      triggerScreenStatic(280);
+
+      // Hide all channels
+      for (let i = 1; i <= tvState.totalChannels; i++) {
+        const chEl = document.getElementById(`channel${i}`);
+        if (chEl) chEl.classList.remove('active');
+      }
+
+      // Show target channel
+      const targetCh = document.getElementById(`channel${channelNumber}`);
+      if (targetCh) {
+        setTimeout(() => targetCh.classList.add('active'), 100);
+      }
+
+      // Ambilight
+      const ambilighter = document.getElementById('tvAmbilight');
+      if (ambilighter && channelData[channelNumber]) {
+        ambilighter.style.background = channelData[channelNumber].color;
+      }
+
+      // Watermark & Hardware Number
+      const watermark = document.getElementById('tvWatermark');
+      if (watermark && channelData[channelNumber]) {
+        watermark.textContent = channelData[channelNumber].watermark;
+      }
+      const hwNum = document.getElementById('hwChannelNum');
+      if (hwNum) hwNum.textContent = channelNumber;
+
+      // Video playback control
+      const vid = document.getElementById('shadiaNativeVideo');
+      if (vid) {
+        if (channelNumber === 3 && tvState.isOn) {
+          vid.play().catch(() => {});
+        } else {
+          vid.pause();
+        }
+      }
+
+      showToast(`القناة ${channelNumber}: ${channelData[channelNumber].name}`, 'fa-tv');
+    }
+
+    /* TV Power Toggle */
+    function togglePower() {
+      triggerIrBlaster();
+      playClickSound();
+      tvState.isOn = !tvState.isOn;
+
+      const screenOffOverlay = document.getElementById('screenOffOverlay');
+      const powerLed = document.getElementById('powerLed');
+      const ambilighter = document.getElementById('tvAmbilight');
+      const vid = document.getElementById('shadiaNativeVideo');
+
+      if (tvState.isOn) {
+        screenOffOverlay.classList.add('hidden-screen');
+        powerLed.className = 'w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_6px_#10b981]';
+        ambilighter.classList.remove('off');
+        triggerScreenStatic(320);
+        setChannel(tvState.currentChannel);
+        if (vid && tvState.currentChannel === 3) vid.play().catch(() => {});
+        showToast('تم تشغيل التلفاز 📺', 'fa-tv');
+      } else {
+        screenOffOverlay.classList.remove('hidden-screen');
+        powerLed.className = 'w-2.5 h-2.5 rounded-full bg-red-600 shadow-[0_0_6px_#ef4444]';
+        ambilighter.classList.add('off');
+        if (vid) vid.pause();
+        for (let i = 1; i <= tvState.totalChannels; i++) {
+          const chEl = document.getElementById(`channel${i}`);
+          if (chEl) chEl.classList.remove('active');
+        }
+        showToast('وضع الاستعداد', 'fa-moon');
+      }
+    }
+
+    /* Volume Controls */
+    function adjustVolume(amount) {
+      triggerIrBlaster();
+      playClickSound();
+      if (!tvState.isOn) return;
+      tvState.volume = Math.max(0, Math.min(100, tvState.volume + amount));
+      tvState.isMuted = false;
+      const vid = document.getElementById('shadiaNativeVideo');
+      if (vid) {
+        vid.volume = tvState.volume / 100;
+        vid.muted = false;
+      }
+      showToast(`مستوى الصوت: ${tvState.volume}%`, tvState.volume > 0 ? 'fa-volume-high' : 'fa-volume-xmark');
+    }
+
+    function toggleMute() {
+      triggerIrBlaster();
+      playClickSound();
+      if (!tvState.isOn) return;
+      tvState.isMuted = !tvState.isMuted;
+      const vid = document.getElementById('shadiaNativeVideo');
+      if (vid) vid.muted = tvState.isMuted;
+      showToast(tvState.isMuted ? 'تم كتم الصوت 🔇' : `تم إلغاء الكتم (${tvState.volume}%)`, tvState.isMuted ? 'fa-volume-xmark' : 'fa-volume-high');
+    }
+
+    function toggleVideoSound() {
+      const vid = document.getElementById('shadiaNativeVideo');
+      if (!vid) return;
+      vid.muted = !vid.muted;
+      const icon = document.getElementById('videoSoundIcon');
+      if (icon) {
+        icon.className = vid.muted ? 'fa-solid fa-volume-xmark text-[8px]' : 'fa-solid fa-volume-high text-[8px]';
+      }
+      showToast(vid.muted ? 'تم كتم صوت الفيديو 🔇' : 'تم تشغيل صوت الفيديو 🔊', vid.muted ? 'fa-volume-xmark' : 'fa-volume-high');
+    }
+
+    /* Room Light Switch */
+    function toggleRoomLighting() {
+      tvState.isRoomLightWarm = !tvState.isRoomLightWarm;
+      playClickSound();
+      const body = document.body;
+      const bulb = document.getElementById('lampBulb');
+
+      if (tvState.isRoomLightWarm) {
+        body.classList.remove('lighting-dim');
+        body.classList.add('lighting-warm');
+        bulb.style.backgroundColor = '#fef08a';
+        bulb.style.boxShadow = '0 0 20px #fef08a';
+        showToast('إضاءة دافئة ✨', 'fa-lightbulb');
+      } else {
+        body.classList.remove('lighting-warm');
+        body.classList.add('lighting-dim');
+        bulb.style.backgroundColor = '#eab308';
+        bulb.style.boxShadow = '0 0 8px #ca8a04';
+        showToast('إضاءة رومانسية خافتة 🕯️', 'fa-moon');
+      }
+    }
+
+    /* Candle Toggle */
+    function toggleCandle() {
+      playClickSound();
+      const flame = document.getElementById('candleFlame');
+      const smoke = document.getElementById('candleSmoke');
+      tvState.isCandleLit = !tvState.isCandleLit;
+
+      if (tvState.isCandleLit) {
+        flame.classList.remove('out');
+        smoke.classList.remove('puff');
+        showToast('أشعلتِ الشمعة 🔥', 'fa-fire');
+      } else {
+        flame.classList.add('out');
+        smoke.classList.add('puff');
+        setTimeout(() => smoke.classList.remove('puff'), 1000);
+        showToast('انطفأ لهب الشمعة 💨', 'fa-wind');
+      }
+    }
+
+    /* Hearts Shower */
+    function triggerHeartShower() {
+      triggerIrBlaster();
+      playClickSound();
+      showToast('أمطار القلوب تتطاير لشادية! 💕🌸', 'fa-heart');
+
+      const icons = ['💖', '💕', '💗', '💓', '✨', '🌸', '💍'];
+      for (let i = 0; i < 30; i++) {
+        setTimeout(() => {
+          const heart = document.createElement('div');
+          heart.className = 'heart-particle select-none';
+          heart.textContent = icons[Math.floor(Math.random() * icons.length)];
+          heart.style.left = `${Math.random() * 88 + 5}vw`;
+          heart.style.bottom = '-20px';
+          heart.style.fontSize = `${Math.floor(Math.random() * 22 + 18)}px`;
+          heart.style.animationDuration = `${(Math.random() * 1.2 + 2.2).toFixed(2)}s`;
+          document.body.appendChild(heart);
+          setTimeout(() => heart.remove(), 3400);
+        }, i * 80);
+      }
+    }
+
+    /* Digital Realtime Clock */
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      const clockEl = document.getElementById('tvRealTime');
+      if (clockEl) clockEl.textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    /* Touch Swipe Detection on TV Screen */
+    const tvScreenArea = document.getElementById('tvScreenArea');
+    let touchStartX = 0, touchEndX = 0;
+
+    tvScreenArea.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    tvScreenArea.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const swipeDistance = touchEndX - touchStartX;
+      if (Math.abs(swipeDistance) > 40) {
+        if (swipeDistance > 0) setChannel(tvState.currentChannel - 1);
+        else setChannel(tvState.currentChannel + 1);
+      }
+    }, { passive: true });
+
+    /* Modals Handler */
+    function openModal(modalId) {
+      playClickSound();
+      const modal = document.getElementById(modalId);
+      if (modal) modal.classList.remove('hidden-modal');
+    }
+
+    function closeAllModals() {
+      playClickSound();
+      document.querySelectorAll('.romantic-modal').forEach(m => m.classList.add('hidden-modal'));
+    }
+
+    document.getElementById('loveLetterProp').addEventListener('click', () => openModal('modalSecretWhisper'));
+    document.getElementById('frameProp').addEventListener('click', () => openModal('modalPactOfLove'));
+    document.getElementById('openMobileRemoteBtn').addEventListener('click', () => openModal('mobileRemoteModal'));
+    document.getElementById('coffeeProp').addEventListener('click', () => {
+      playClickSound();
+      showToast('رشفة قهوة دافئة محلاة بحب شادية ☕♥', 'fa-mug-hot');
+    });
+
+    document.querySelectorAll('.closeModalBtn').forEach(btn => btn.addEventListener('click', closeAllModals));
+    document.querySelectorAll('.romantic-modal').forEach(modal => {
+      modal.addEventListener('click', (e) => { if (e.target === modal) closeAllModals(); });
+    });
+
+    /* DOM Initialization */
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.addEventListener('click', initAudio, { once: true });
+
+      // Hardware Button
+      document.getElementById('btnHwPower').addEventListener('click', togglePower);
+      document.getElementById('ceilingLamp').addEventListener('click', toggleRoomLighting);
+      document.getElementById('candleProp').addEventListener('click', toggleCandle);
+      document.getElementById('btnPlayMelody').addEventListener('click', playRomanticMelody);
+
+      // Mobile Bottom Bar
+      document.getElementById('mobilePowerBtn').addEventListener('click', togglePower);
+      document.getElementById('mobileChNextBtn').addEventListener('click', () => setChannel(tvState.currentChannel + 1));
+      document.getElementById('mobileChPrevBtn').addEventListener('click', () => setChannel(tvState.currentChannel - 1));
+      document.getElementById('mobileHeartShowerBtn').addEventListener('click', triggerHeartShower);
+
+      // Mobile Drawer Remote
+      document.getElementById('mrcPower').addEventListener('click', togglePower);
+      document.getElementById('mrcMute').addEventListener('click', toggleMute);
+      document.getElementById('mrcToggleLight').addEventListener('click', toggleRoomLighting);
+      document.getElementById('mrcChUp').addEventListener('click', () => setChannel(tvState.currentChannel + 1));
+      document.getElementById('mrcChDown').addEventListener('click', () => setChannel(tvState.currentChannel - 1));
+      document.getElementById('mrcVolUp').addEventListener('click', () => adjustVolume(10));
+      document.getElementById('mrcVolDown').addEventListener('click', () => adjustVolume(-10));
+      document.getElementById('mrcHeartShower').addEventListener('click', triggerHeartShower);
+      document.getElementById('mrcQuickPrev').addEventListener('click', () => setChannel(tvState.currentChannel - 1));
+
+      document.querySelectorAll('#mobileRemoteModal [data-channel]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const ch = parseInt(btn.getAttribute('data-channel'), 10);
+          setChannel(ch);
+        });
+      });
+
+      // Initial Setup
+      setChannel(3);
+    });
+  </script>
+</body>
+</html>
